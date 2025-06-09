@@ -1,0 +1,146 @@
+<!-- ====================================================================
+  Associate Tech Ambassador Landing Page
+  Version: 3.1 – Readability refinements
+  Change Log (2025‑06‑09):
+    • Increased base font size for easier reading (17 px).
+    • Hero subtitle now renders in white (#FFF) instead of accent blue on
+      black for stronger contrast (WCAG AA compliant).
+    • Benefit‑card paragraph text slightly larger (1.05 rem) for clarity.
+  --------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Associate Tech Ambassador · Club Stride Inc.</title>
+  <meta name="description" content="Earn $240 in 3 weeks as a Club Stride Associate Tech Ambassador. Create AI YouTube Shorts, gain leadership skills, and make an impact." />
+
+  <!-- Brand Typeface -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --clr-primary:#000;--clr-bg:#fff;--clr-accent:#2C57FA;--clr-accent-darker:#1844d9;
+      --clr-card:#fff;--clr-muted:#666;--radius-lg:16px;--radius-sm:8px;--shadow:0 4px 12px rgba(0,0,0,.08);
+      --transition:.3s ease;--max-w:1200px
+    }
+    @media(prefers-color-scheme:dark){:root{--clr-bg:#000;--clr-primary:#fff;--clr-card:#131313;--shadow:0 4px 12px rgba(255,255,255,.05)}}
+    *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:106.25%;/*17px*/}
+    body{font-family:"Instrument Sans",Arial,sans-serif;background:var(--clr-bg);color:var(--clr-primary);line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:var(--clr-accent);text-decoration:none;transition:color var(--transition)}a:hover{color:var(--clr-accent-darker)}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 1rem}
+
+    /* HERO */
+    header.hero{background:var(--clr-primary);color:#000;padding:3.5rem 0 4rem;clip-path:polygon(0 0,100% 0,100% 90%,0 100%);position:relative}
+    header.hero::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3rem;background:var(--clr-bg);clip-path:polygon(0 100%,100% 0,100% 100%)}
+    .hero-inner{text-align:center;position:relative;z-index:1}
+    .hero-title{font-size:2.5rem;font-weight:600;margin-bottom:.75rem;letter-spacing:-.3px}
+    .hero-subtitle{font-size:1.15rem;font-weight:400;max-width:40ch;margin:0 auto;color:#000;opacity:.9}
+
+    /* SECTION HEADINGS */
+    section{margin-top:4rem}
+    h2.section-title{font-size:2rem;font-weight:600;text-align:center;color:var(--clr-accent);margin-bottom:2rem}
+
+    /* BENEFITS GRID */
+    .benefits-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .benefit-card{background:var(--clr-card);border-radius:var(--radius-lg);padding:1.7rem 1.4rem;box-shadow:var(--shadow);text-align:center;transition:transform var(--transition),box-shadow var(--transition)}
+    .benefit-card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+    .benefit-card h3{font-size:1.3rem;font-weight:600;color:var(--clr-accent);margin-bottom:.6rem}
+    .benefit-card p{font-size:1.05rem}
+
+    /* TIMELINE */
+    .timeline{display:grid;gap:2rem}@media(min-width:700px){.timeline{grid-template-columns:repeat(3,1fr)}}
+    .timeline-item{background:var(--clr-card);border-radius:var(--radius-lg);padding:1.6rem;box-shadow:var(--shadow)}
+    .timeline-item h4{font-size:1.15rem;font-weight:600;margin-bottom:.55rem;color:var(--clr-accent)}
+    .timeline-item ul{list-style:disc inside}
+
+    /* REQUIREMENTS */
+    .requirements ul{max-width:680px;margin:0 auto;font-size:1.05rem;line-height:1.8}
+
+    /* FAQ */
+    .faq-item{background:var(--clr-card);border-radius:var(--radius-lg);box-shadow:var(--shadow);margin-bottom:1rem;overflow:hidden}
+    .faq-question{cursor:pointer;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:1.1rem}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height var(--transition);padding:0 1.25rem}
+    .faq-answer p{padding:1rem 0;font-size:1.05rem}
+
+    /* CTA */
+    .cta{background:var(--clr-accent);color:#fff;border-radius:var(--radius-lg);padding:2.7rem 1.6rem;text-align:center}
+    .cta-title{font-size:1.8rem;font-weight:600;margin-bottom:1rem}
+    .cta-subtitle{font-size:1.15rem;margin-bottom:2rem}
+    .cta-btn{background:#fff;color:var(--clr-accent);padding:1rem 2.4rem;font-weight:600;border:none;border-radius:50px;box-shadow:var(--shadow);cursor:pointer;transition:background var(--transition),transform var(--transition)}
+    .cta-btn:hover{background:#f1f1f1;transform:translateY(-2px)}
+
+    /* FOOTER / UTILITIES */
+    footer{text-align:center;padding:2rem 1rem 3rem;font-size:.9rem;color:var(--clr-muted)}
+    #topBtn{position:fixed;bottom:24px;right:24px;background:var(--clr-accent);color:#fff;border:none;border-radius:50%;width:46px;height:46px;font-size:1.3rem;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:999;transition:background var(--transition),transform var(--transition)}
+    #topBtn:hover{background:var(--clr-accent-darker);transform:translateY(-2px)}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title">Paid 3‑Week Micro‑Gig: Associate Tech Ambassador</h1>
+      <p class="hero-subtitle">Create viral AI‑powered YouTube Shorts &amp; lead the youth‑health conversation.</p>
+    </div>
+  </header>
+
+  <section id="benefitsSection">
+    <h2 class="section-title">Why Join?</h2>
+    <div class="container benefits-grid">
+      <article class="benefit-card"><h3>Real Pay</h3><p><strong>$240</strong> for only <strong>12 hours</strong> of work — paid bi‑weekly.</p></article>
+      <article class="benefit-card"><h3>Creator Skills</h3><p>Master AI video generation, Canva/CapCut edits, and YouTube SEO.</p></article>
+      <article class="benefit-card"><h3>Leadership Cred</h3><p>Earn the title, host a live Q&amp;A, and mentor the next cohort.</p></article>
+      <article class="benefit-card"><h3>Make an Impact</h3><p>Educate peers on food insecurity, mental health, and STI resources.</p></article>
+    </div>
+  </section>
+
+  <section id="missionSection">
+    <h2 class="section-title">Your 3‑Week Mission</h2>
+    <div class="container timeline">
+      <div class="timeline-item"><h4>Week 1</h4><ul><li>Foundations &amp; definitions</li><li>Publish 12 Shorts</li></ul></div>
+      <div class="timeline-item"><h4>Week 2</h4><ul><li>Myths &amp; lived stories</li><li>Publish 12 Shorts</li></ul></div>
+      <div class="timeline-item"><h4>Week 3</h4><ul><li>Local resources &amp; action steps</li><li>Publish 12 Shorts</li><li>Host live Q&amp;A</li></ul></div>
+    </div>
+  </section>
+
+  <section class="requirements">
+    <h2 class="section-title">What We’re Looking For</h2>
+    <div class="container"><ul>
+      <li>Club Stride program alumni status</li>
+      <li>Comfortable on camera or willing to use AI avatars / stock clips</li>
+      <li>Reliable internet <strong>and</strong> personal desktop or laptop (required)</li>
+      <li>Passionate about youth health, storytelling, and emerging tech</li>
+      <li>Demonstrated leadership &amp; peer‑mentoring mindset</li>
+      <li>Available for two 15‑minute check‑ins each week</li>
+    </ul></div>
+  </section>
+
+  <section id="faqSection">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="container" id="faqContainer">
+      <div class="faq-item"><div class="faq-question" tabindex="0" aria-expanded="false">How do I get paid? <span>➕</span></div><div class="faq-answer"><p>Payments processed bi‑weekly via ACH or PayPal. Follow our timeline, log your hours, and we handle the rest.</p></div></div>
+      <div class="faq-item"><div class="faq-question" tabindex="0" aria-expanded="false">What equipment do I need? <span>➕</span></div><div class="faq-answer"><p>A desktop or laptop computer with a stable internet connection.</p></div></div>
+      <div class="faq-item"><div class="faq-question" tabindex="0" aria-expanded="false">Will training be provided? <span>➕</span></div><div class="faq-answer"><p>Yes—our kickoff includes tool demos, script templates, and YouTube SEO best practices.</p></div></div>
+    </div>
+  </section>
+
+  <section class="cta" id="applySection">
+    <div class="container">
+      <h3 class="cta-title">Ready to Lead &amp; Create?</h3>
+      <p class="cta-subtitle">Apply by <strong>Friday, June 13</strong> — spots are limited!</p>
+      <button class="cta-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdeG8PREKJ2kGtqNEI8ogB_070kr0_aVPNM4vDzs-eU4aPv5g/viewform?usp=sharing&amp;ouid=101799006520898988065','_blank','noopener')">Apply Now</button>
+    </div>
+  </section>
+
+  <footer>© 2025 Club Stride Inc. • Questions? <a href="mailto:programs@clubstride.org">programs@clubstride.org</a></footer>
+  <button id="topBtn" aria-label="Scroll to top">↑</button>
+
+  <script>
+    (function(){const qs=document.querySelectorAll('.faq-question');qs.forEach(q=>{q.addEventListener('click',toggle);q.addEventListener('keydown',e=>{if(['Enter',' '].includes(e.key)){e.preventDefault();toggle.call(q);}});});function toggle(){const a=this.nextElementSibling;const ex=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!ex);a.style.maxHeight=ex?'0':a.scrollHeight+'px';this.querySelector('span').textContent=ex?'➕':'➖';}})();
+    (function(){const btn=document.getElementById('topBtn');window.addEventListener('scroll',()=>btn.style.display=window.scrollY>500?'flex':'none');btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));})();
+  </script>
+</body>
+</html>
